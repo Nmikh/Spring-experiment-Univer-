@@ -1,0 +1,24 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id = "lectorDAO" class="com.dao.LectorDAO"/>
+    <bean id="lectorService" class="com.services.LectorService">
+        <property name="lectorDAO" ref="lectorDAO"/>
+    </bean>
+    <bean id = "lectorController" class="com.controllers.LectorController">
+        <property name="lectorService" ref="lectorService"/>
+    </bean>
+
+
+    <bean id = "studentDAO" class="com.dao.StudentdDAO"/>
+    <bean id="studentService" class="com.services.StudentService">
+        <property name="studentDAO" ref="studentDAO"/>
+    </bean>
+    <bean id = "studentController" class="com.controllers.StudentController">
+        <property name="studentService" ref="studentService"/>
+    </bean>
+
+
+</beans>
